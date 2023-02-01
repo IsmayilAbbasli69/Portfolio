@@ -68,7 +68,7 @@ app.post('/api/data', async (req,res)=>{
 
 
 
-app.post('/api/login', async (req,res)=>{ 
+app.post('https://ismayilabbasli.netlify.app/api/login', async (req,res)=>{ 
   console.log(req.body)
 
 
