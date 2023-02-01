@@ -1,6 +1,8 @@
 
 const express=require('express');
+const serverless=require('serverless-http')
 const app=express();
+const router=app.Router()
 const cors=require('cors');
 const mongoose=require('mongoose')
 const User=require('./models/user.model');
@@ -18,7 +20,7 @@ mongoose.connect('mongodb+srv://dbIsmayil:ismayil13@cluster0.ejhfuce.mongodb.net
   console.log('error:'+err.message);  
 });
 
-app.post('/api/register', async (req,res)=>{ 
+router.post('/api/register', async (req,res)=>{ 
 console.log(req.body)
 
 try {
@@ -34,7 +36,7 @@ await User.create({
 }
 })
 
-app.post('/api/create', async (req,res)=>{ 
+router.post('/api/create', async (req,res)=>{ 
   console.log(req.body)
   const name=await User.findOne({email:req.body.email});
   
@@ -52,7 +54,7 @@ app.post('/api/create', async (req,res)=>{
   })
 
 
-app.post('/api/get_blog',async (req,res)=>{
+router.post('/api/get_blog',async (req,res)=>{
   const data=await Blog.find({});
   return res.json({data:data})
 })
@@ -60,7 +62,7 @@ app.post('/api/get_blog',async (req,res)=>{
 
 
   
-app.post('/api/data', async (req,res)=>{
+router.post('/api/data', async (req,res)=>{
   const data=await User.findOne({email:req.body.email})
   return res.json({data:data.name})
 })
@@ -68,7 +70,7 @@ app.post('/api/data', async (req,res)=>{
 
 
 
-app.post('/api/login', async (req,res)=>{ 
+router.post('/api/login', async (req,res)=>{ 
   console.log(req.body)
 
 
@@ -91,7 +93,7 @@ password:user.password,
   })
 
 
-  app.post('/api/blog',async(req,res)=>{
+  router.post('/api/blog',async(req,res)=>{
     console.log(req.body);
 const title=req.body.title;
 
@@ -104,7 +106,7 @@ return res.json({status:'error',error:err})
 
   })
 
-
+module.exports.handler=serverless(app)
 
 app.listen(process.env.PORT||5000,()=>{ 
   console.log("Server active")
