@@ -11,7 +11,7 @@ const jwt=require('jsonwebtoken');
 
 app.use(cors());
 app.use(express.json())   
-mongoose.set('strictQuery', false);
+mongoose.set('strictQuery', true);
 mongoose.connect('mongodb+srv://dbIsmayil:ismayil13@cluster0.ejhfuce.mongodb.net/?retryWrites=true&w=majority').then(()=>{
   console.log('DB connected')
 }).catch((err) => {
