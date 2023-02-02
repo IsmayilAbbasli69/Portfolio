@@ -1,7 +1,6 @@
 
 import React,{useState,useEffect} from 'react'
-import { Navigate, useNavigate } from 'react-router-dom'
-import jwt from 'jwt-decode';
+import {  useNavigate } from 'react-router-dom'
 import jwtDecode from 'jwt-decode';
 
 const Create = () => {

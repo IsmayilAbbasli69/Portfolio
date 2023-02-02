@@ -1,4 +1,6 @@
 [[redirects]]
+[build]
 from="*/"
 to="/index.html"
+functions="functions"
 status=200

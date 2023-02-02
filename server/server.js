@@ -106,6 +106,8 @@ return res.json({status:'error',error:err})
 
   })
 
+app.use('/.netlify/functions/api',router)
+
 module.exports.handler=serverless(app)
 
 app.listen(process.env.PORT||5000,()=>{ 

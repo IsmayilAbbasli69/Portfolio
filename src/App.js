@@ -9,7 +9,7 @@ import Blog from './Form/Blog'
 import Portfolio from './Portfolio'
 import '../src/components/styles.css'
 import '../src/Form/style_form.css'
-import { BrowserRouter,Route,Routes,Link } from 'react-router-dom'
+import { Route,Routes } from 'react-router-dom'
 
 
 
