@@ -2,7 +2,7 @@
 const express=require('express');
 const serverless=require('serverless-http')
 const app=express();
-const router=app.Router()
+const router=express.Router()
 const cors=require('cors');
 const mongoose=require('mongoose')
 const User=require('./models/user.model');
@@ -89,7 +89,7 @@ password:user.password,
   }else{
     res.json({status:'error',user:false})
   }
-  console.loh("message");
+  
   })
 
 
