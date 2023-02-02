@@ -3,7 +3,7 @@ const API = () => {
 const [weather,setWeather]=useState({city:'',country:'',temperature:'',text:'',icon:''})
 const [city,setCity]=useState('')
 useEffect(() => {
-    fetch(`http://api.weatherapi.com/v1/current.json?key=a1fe760249734fd5a22234042231701&q=${city} `)
+    fetch(`https://api.weatherapi.com/v1/current.json?key=a1fe760249734fd5a22234042231701&q=${city} `)
 	.then(response => response.json())
 	.then(response => setWeather({
    city:response.location.name,

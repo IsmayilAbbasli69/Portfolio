@@ -1,4 +1,5 @@
 
+'use strict';
 const express=require('express');
 const serverless=require('serverless-http')
 const app=express();
@@ -13,7 +14,6 @@ const jwt=require('jsonwebtoken');
 
 app.use(cors());
 app.use(express.json())   
-mongoose.set('strictQuery', true);
 mongoose.connect('mongodb+srv://dbIsmayil:ismayil13@cluster0.ejhfuce.mongodb.net/?retryWrites=true&w=majority').then(()=>{
   console.log('DB connected')
 }).catch((err) => {
@@ -70,7 +70,7 @@ router.post('/api/data', async (req,res)=>{
 
 
 
-router.post('/api/login', async (req,res)=>{ 
+router.post('/login', async (req,res)=>{ 
   console.log(req.body)
 
 
@@ -89,7 +89,7 @@ password:user.password,
   }else{
     res.json({status:'error',user:false})
   }
-  
+  console.log("MEssage")
   })
 
 
@@ -107,7 +107,7 @@ return res.json({status:'error',error:err})
   })
 
 app.use('/.netlify/functions/api',router)
-
+module.exports=app;
 module.exports.handler=serverless(app)
   app.use('/api',router)
 app.listen(process.env.PORT||5000,()=>{ 

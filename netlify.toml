@@ -2,5 +2,6 @@
 [build]
 from="*/"
 to="/index.html"
+command = "npm install && npm run build"
 functions="functions"
 status=200
