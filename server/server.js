@@ -89,7 +89,7 @@ password:user.password,
   }else{
     res.json({status:'error',user:false})
   }
-  
+  console.loh("message");
   })
 
 
