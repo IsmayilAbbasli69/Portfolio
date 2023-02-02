@@ -1,7 +1,7 @@
 [[redirects]]
-[build]
 from="*/"
 to="/index.html"
+status=200
+[build]
 command = "npm install && npm run build"
 functions="functions"
-status=200

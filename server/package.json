@@ -2,10 +2,10 @@
   "name": "server",
   "version": "1.0.0",
   "description": "",
-  "main": "functions/server.js",
+  "main": "server.js",
   "scripts": {
 
-    "build": "netlify-lambda build express"
+    "build": "node server.js"
   },
   "author": "",
   "license": "ISC",
