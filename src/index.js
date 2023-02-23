@@ -5,10 +5,11 @@ import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
 import '../node_modules/font-awesome/css/font-awesome.min.css'; 
-
+import { Provider } from 'react-redux';
+import store from './Store';
  ReactDOM.render(
- <BrowserRouter>
+<Provider store={store}>
  <App/>
- </BrowserRouter>
+</Provider>
  ,document.getElementById('root'));
 

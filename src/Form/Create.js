@@ -11,7 +11,7 @@ const Create = () => {
     
     async function Create_Blog(event){ 
         event.preventDefault();
-        const response =await fetch('https://ismayilabbasli.netlify.app/api/create',{
+        const response =await fetch('https://ismayilabbasli-api.onrender.com/api/create',{
           method:'POST',
         headers:{
         'Content-Type':'application/json'

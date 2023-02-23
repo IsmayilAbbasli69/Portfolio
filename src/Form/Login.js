@@ -9,11 +9,12 @@ import { useNavigate } from 'react-router-dom'
 const Login = () => {
   const [email,setEmail]=useState('');
   const [password,setPassword]=useState('');
+  const [loading,setLoading]=useState('Login')
   const navigate=useNavigate();
   
   async function Login(event){
 event.preventDefault();
-const response =await fetch('https://ismayilabbasli.netlify.app/api/login',{
+const response =await fetch('https://ismayilabbasli-api.onrender.com/api/login',{
   method:'POST',
 headers:{
 'Content-Type':'application/json'
@@ -30,6 +31,7 @@ password,
 })
 const data= await response.json();
 console.log(data.user);
+
 if(data.user && data.status==='ok'){
   localStorage.setItem('token',data.user);
   
@@ -53,7 +55,7 @@ if(data.user && data.status==='ok'){
 
    
     <div>
-      <button type='submit'>Login</button>
+      <button type='submit' onClick={()=>setLoading('Loading')}>{loading}</button>
     </div>
     </div>
       </form>

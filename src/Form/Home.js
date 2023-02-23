@@ -5,6 +5,8 @@ import jwt from 'jwt-decode'
 import Navigate, { useNavigate,Link } from 'react-router-dom'
 import Blogs from './Blogs'
 import jwtDecode from 'jwt-decode'
+import {setID, setTotalID} from '../Store'
+import { useDispatch,useSelector } from 'react-redux'
 const Home = () => {
 
 
@@ -12,9 +14,10 @@ const [name,setName]=useState('');
 const [blog,setBlog]=useState([]);
 const [title,setTitle]=useState();
 const [owner,setOwner]=useState();
-
+const [id,setId]=useState('');
+const dispatch = useDispatch();
 async  function getHome(user){
-const req=await fetch('https://ismayilabbasli.netlify.app/api/data',{ 
+const req=await fetch('https://ismayilabbasli-api.onrender.com/api/data',{ 
   method:'POST',
 headers:{ 
   
@@ -52,7 +55,7 @@ getHome(user.email);
 
 
 async function getBlog(){
-const data=await fetch('https://ismayilabbasli.netlify.app/get_blog',{
+const data=await fetch('https://ismayilabbasli-api.onrender.com/api/get_blog',{
   method:'POST',
   headers:{
   'Content-Type':'application/json'
@@ -64,8 +67,10 @@ const data=await fetch('https://ismayilabbasli.netlify.app/get_blog',{
   })
 
 })
-const blog=await data.json();
-setBlog(blog.data)
+const res=await data.json();
+
+setBlog(res.data)
+
 
 
 }
@@ -73,10 +78,37 @@ setBlog(blog.data)
 
 
 
+async function get_specific_blog(title){
+  const data=await fetch('https://ismayilabbasli-api.onrender.com/api/get_specific_blog',{
+    method:'POST',
+    headers:{
+    'Content-Type':'application/json'
+    
+    },
+    body:JSON.stringify({
+      title:title,
+   
+    })
+  
+  })
+  const blog=await data.json();
+  console.log(blog.data._id)
+  setId(blog.data._id)
+  navigate('/'+blog.data._id)
+  dispatch(setID(blog.data._id))
+  
+  
+  
+  }
+
+
+
 
 async function resBlog(title){
+  setTitle(title)
   localStorage.setItem('title',title);
- navigate('/blog')
+
+
 
   
   
@@ -84,6 +116,7 @@ async function resBlog(title){
 
 
 function displayBlog(e){
+  get_specific_blog(e)
 resBlog(e);
 
 }

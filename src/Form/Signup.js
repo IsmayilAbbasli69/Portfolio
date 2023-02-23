@@ -11,7 +11,7 @@ const Signup = () => {
 
   async function Register(event){ 
 event.preventDefault();
-const response =await fetch('https://ismayilabbasli.netlify.app/api/register',{
+const response =await fetch('https://ismayilabbasli-api.onrender.com/api/register',{
   method:'POST',
 headers:{
 'Content-Type':'application/json'
