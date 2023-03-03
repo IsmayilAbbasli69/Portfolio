@@ -52,7 +52,7 @@ getHome(user.email);
 }, [])
 
 
-
+ 
 
 async function getBlog(){
 const data=await fetch('https://ismayilabbasli-api.onrender.com/api/get_blog',{

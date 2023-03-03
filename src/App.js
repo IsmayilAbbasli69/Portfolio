@@ -10,12 +10,11 @@ import Portfolio from './portfolio/Portfolio'
 import '../src/components/styles.css'
 import '../src/Form/style_form.css'
 import { Route,Routes,BrowserRouter } from 'react-router-dom'
-import { useSelector } from 'react-redux'
 
 
 
 const App = () => {
-  const id=useSelector(state=>state.id)
+ 
 
   return ( 
     <div>
@@ -24,7 +23,7 @@ const App = () => {
       <Route path='/' element={<Portfolio/>}/>
       <Route path='/todoapp' element={<List/>}/>
       <Route path='/api' element={<API/>}/>
-      <Route path={`/${id.id}`}  element={<Blog/>}/>
+      <Route path={`:params`}  element={<Blog/>}/>
       <Route path='/create' element={<Create/>}/>
       <Route path='/register' element={<Signup/>}/>
       <Route path='/login' element={<Login/>}/>

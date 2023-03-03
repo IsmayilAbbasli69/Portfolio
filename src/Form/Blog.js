@@ -4,9 +4,11 @@ import {useParams,useLocation} from 'react-router-dom'
 const Blog = () => {
 const [title,setTitle]=useState('');
 const [blog,setBlog]=useState('')
+ const {location}=useLocation().pathname
+const {params}=useParams()
 const id=useSelector(state=>state.id)
 async function get_blog(){
-    const response =await fetch(`https://ismayilabbasli-api.onrender.com/home/${id.id}`,{
+    const response =await fetch(`https://ismayilabbasli-api.onrender.com/home/${params}`,{
         method:'POST',
       headers:{
       'Content-Type':'application/json'
@@ -18,6 +20,9 @@ async function get_blog(){
       const data= await response.json();
      setTitle(data.data.title);
      setBlog(data.data.blog);
+if(data==null){
+  document.write("Fuck you")
+}
     
 }
 
@@ -30,7 +35,6 @@ get_blog();
       <div id='article_blog'>
         
   <blockquote>{blog}</blockquote>
-
        </div>
       
     </div>

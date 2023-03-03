@@ -13,7 +13,7 @@ const Navbar = () => {
       {
         navbarLinks.map((item,index)=>(
             <div key={index} style={{margin:10+'px'}}>
-                <a href={`#${item.id}`} style={{fontSize:23+'px',color:'white',fontStyle:'normal',textDecoration:'none'}}>{item.title}</a>
+                <a href={`#${item.id}`} style={{fontSize:23+'px',color:'white',fontStyle:'normal',textDecoration:'none',fontFamily:'Jura'}}>{item.title}</a>
             </div>
         ))
       }
@@ -23,7 +23,7 @@ const Navbar = () => {
       {
         navbarLinks.map((item,index)=>(
             <div key={index} style={{marginBottom:5+'px'}}>
-                <a href={`#${item.id}`} style={{fontSize:17+'px',color:'white',fontStyle:'normal',textDecoration:'none'}}>{item.title}</a>
+                <a href={`#${item.id}`} style={{fontSize:17+'px',color:'white',fontStyle:'normal',textDecoration:'none',fontFamily:'Jura'}}>{item.title}</a>
             </div>
         ))
       }

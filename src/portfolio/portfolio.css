@@ -99,6 +99,7 @@ position: relative;
           padding-top: 7px;
           padding-bottom: 7px;
          background-color: white;
+         font-family: 'Jura';
          color:#0B0023;
          line-height: 10px;
          text-align: center;
@@ -107,7 +108,7 @@ position: relative;
        margin:10px;
      }
      .skills{
-         margin-top:200px;
+         margin-top:10%;
          width:500px;
          display: flex;
          flex-wrap: wrap;
@@ -183,8 +184,8 @@ position: relative;
         font-size:33px;
         text-decoration: none;
         position: relative;
-        margin:30px;
-      
+        margin:20px;
+       margin-top: 10px;
         transition-duration: 0.3s;
       
     }
@@ -385,6 +386,7 @@ position: relative;
           padding-top: 7px;
           padding-bottom: 7px;
          background-color: white;
+         font-family: 'Jura';
          color:#0B0023;
          line-height: 7px;
          text-align: center;
@@ -438,7 +440,7 @@ position: relative;
 
 
     .Projects .header h1{
-        top:115%;
+        top:125%;
         left:40vw;
      
         font-family: 'Jura';
@@ -459,7 +461,7 @@ position: relative;
         display: flex;
       flex-direction: column;
         position: absolute;
-        top:130%;
+        top:140%;
        
     }
     
@@ -483,7 +485,7 @@ position: relative;
 
         
     .Contact .header h1{
-        top:215%;
+        top:225%;
         left:40vw;
      
         font-family: 'Jura';
